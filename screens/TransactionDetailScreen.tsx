@@ -50,12 +50,17 @@ export function TransactionDetailScreen({ id }: { id: string }) {
           </Text>
           <Text style={styles.heroParty}>{txn.party}</Text>
           <View
-            style={[styles.status, txn.status === 'Pending' && styles.statusPending]}
+            style={[
+              styles.status,
+              txn.status === 'Pending' && styles.statusPending,
+              txn.status === 'Failed' && styles.statusFailed,
+            ]}
           >
             <Text
               style={[
                 styles.statusText,
                 txn.status === 'Pending' && styles.statusTextPending,
+                txn.status === 'Failed' && styles.statusTextFailed,
               ]}
             >
               {txn.status}
@@ -162,8 +167,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#DCEFE4',
   },
   statusPending: { backgroundColor: '#FCE8DC' },
+  statusFailed: { backgroundColor: '#F7DCD8' },
   statusText: { ...type.caption, color: colors.positive, fontWeight: '700' },
   statusTextPending: { color: colors.accentDeep },
+  statusTextFailed: { color: colors.danger },
 
   card: { marginTop: 14, marginHorizontal: 12 },
   cardTitle: {

@@ -39,8 +39,12 @@ export function TxnRow({ txn, last }: { txn: Txn; last?: boolean }) {
             <Text style={styles.meta} numberOfLines={1}>
               {txn.date} · {txn.method}
             </Text>
-            {txn.status === 'Pending' ? (
-              <Text style={styles.pending}>Pending</Text>
+            {txn.status !== 'Completed' ? (
+              <Text
+                style={[styles.pending, txn.status === 'Failed' && styles.failed]}
+              >
+                {txn.status}
+              </Text>
             ) : null}
           </View>
           {txn.note ? (
@@ -85,5 +89,6 @@ const styles = StyleSheet.create({
   amountDeposit: { color: colors.positive },
   meta: { flex: 1, ...type.caption, color: colors.textMuted, marginTop: 2 },
   pending: { ...type.caption, color: colors.accentDeep, fontWeight: '700' },
+  failed: { color: colors.danger },
   note: { ...type.label, color: colors.textFaint, marginTop: 3 },
 });
