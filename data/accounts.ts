@@ -3,6 +3,8 @@
  * account/routing values are deliberately non-routable placeholders.
  */
 
+// Used on: Home screen (greeting/tier header), Profile screen (name, email,
+// phone, tier, member-since, avatar initials).
 export const profile = {
   firstName: 'Erin',
   fullName: 'Erin Delacroix',
@@ -24,6 +26,12 @@ export type Account = {
   routingNumber: string;
 };
 
+// Used on: Home screen (Spend/Reserve/Growth rows under "Virtual Wallet With
+// Performance Spend", tapping a row opens Account Detail), Account Detail
+// screen (balance, available/scheduled, header label), Account & Routing
+// Numbers screen (account number, routing number, header label), Transaction
+// Detail screen (account number shown for that transaction's account), Send
+// screen (account picker + balances).
 export const accounts: Account[] = [
   {
     id: 'spend',
@@ -55,15 +63,23 @@ export const accounts: Account[] = [
   },
 ];
 
+// Used on: Account & Routing Numbers screen only — "Wire Transfers" section
+// (Domestic Routing Number + International Swift Code rows). Shared across
+// every account (not per-account data).
 export const wireDetails = {
   domesticRouting: '043000096',
   swift: 'PNCCUS33XXX',
 };
 
+// Used on: every screen that opens via /account/[id] — Account Detail and
+// Account & Routing Numbers — to look up the right account from the route id.
 export function accountById(id: string) {
   return accounts.find((a) => a.id === id);
 }
 
+// Used on: Home (account balances), Account Detail (balance, available,
+// scheduled), Profile (balances list), Send screen (balances) — anywhere a
+// dollar amount from this file is displayed.
 /** Formats a balance the way the account rows do: negatives get a leading dash. */
 export function money(value: number) {
   const abs = Math.abs(value).toLocaleString('en-US', {

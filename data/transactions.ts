@@ -19,6 +19,11 @@ export type Txn = {
   accountId: string;
 };
 
+// Used on: Home screen (Transaction History card, last 4), Transactions
+// screen (full list, filterable by All/Deposits/Withdrawals), Account Detail
+// screen (Recent Transactions for the opened account only), Transaction
+// Detail screen (single row, opened by tapping any TxnRow), Routing Numbers
+// screen ("Recent on this account" strip).
 export const transactions: Txn[] = [
   {
     id: 't1',
@@ -191,6 +196,8 @@ export const transactions: Txn[] = [
   },
 ];
 
+// Used on: TxnRow component (every transaction row, on Home/Transactions/
+// Account Detail/Routing Numbers), Transaction Detail screen (amount field).
 export function formatAmount(amount: number) {
   const sign = amount < 0 ? '-' : '+';
   const abs = Math.abs(amount).toLocaleString('en-US', {
@@ -200,6 +207,8 @@ export function formatAmount(amount: number) {
   return `${sign}$${abs}`;
 }
 
+// Used on: Transaction Detail screen — looks up the tapped transaction from
+// the /transaction/[id] route.
 export function txnById(id: string) {
   return transactions.find((t) => t.id === id);
 }
