@@ -28,10 +28,12 @@ export type Account = {
 
 // Used on: Home screen (Spend/Reserve/Growth rows under "Virtual Wallet With
 // Performance Spend", tapping a row opens Account Detail), Account Detail
-// screen (balance, available/scheduled, header label), Account & Routing
-// Numbers screen (account number, routing number, header label), Transaction
-// Detail screen (account number shown for that transaction's account), Send
-// screen (account picker + balances).
+// screen (balance, available/scheduled, header label, AND the collapsible
+// "View Account Details" panel — shows this account's accountNumber +
+// routingNumber inline when expanded), Account & Routing Numbers screen
+// (account number, routing number, header label), Transaction Detail screen
+// (account number shown for that transaction's account), Send screen
+// (account picker + balances).
 export const accounts: Account[] = [
   {
     id: 'spend',

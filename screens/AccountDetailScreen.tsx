@@ -25,6 +25,7 @@ export function AccountDetailScreen({ accountId }: { accountId: string }) {
   const account = accountById(accountId) ?? accountById('spend')!;
   const accountTxns = transactions.filter((t) => t.accountId === account.id);
   const groups = groupByDate(accountTxns);
+  const [detailsOpen, setDetailsOpen] = React.useState(false);
 
   return (
     <View style={styles.root}>
@@ -78,10 +79,31 @@ export function AccountDetailScreen({ accountId }: { accountId: string }) {
             </View>
           </View>
 
-          <Pressable style={styles.viewDetails}>
+          <Pressable
+            style={styles.viewDetails}
+            onPress={() => setDetailsOpen((v) => !v)}
+          >
             <Text style={styles.viewDetailsText}>View Account Details</Text>
-            <Ionicons name="chevron-down" size={16} color={colors.link} />
+            <Ionicons
+              name={detailsOpen ? 'chevron-up' : 'chevron-down'}
+              size={16}
+              color={colors.link}
+            />
           </Pressable>
+
+          {detailsOpen ? (
+            <View style={styles.detailsPanel}>
+              <View style={styles.detailsDivider} />
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsLabel}>Account Number</Text>
+                <Text style={styles.detailsValue}>{account.accountNumber}</Text>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsLabel}>Routing Number</Text>
+                <Text style={styles.detailsValue}>{account.routingNumber}</Text>
+              </View>
+            </View>
+          ) : null}
         </Card>
 
         <Card style={styles.actionsCard}>
@@ -180,6 +202,19 @@ const styles = StyleSheet.create({
   splitLabel: { ...type.caption, color: colors.textMuted, marginTop: 3 },
   viewDetails: { flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 18 },
   viewDetailsText: { ...type.label, color: colors.link, fontWeight: '600' },
+  detailsPanel: { alignSelf: 'stretch', marginTop: 14 },
+  detailsDivider: {
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: colors.hairline,
+    marginBottom: 12,
+  },
+  detailsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 6,
+  },
+  detailsLabel: { ...type.body, color: colors.textMuted },
+  detailsValue: { ...type.bodyStrong, color: colors.text, fontWeight: '700' },
   actionsCard: { marginTop: 14, marginHorizontal: 12 },
   recentHeader: {
     flexDirection: 'row',
