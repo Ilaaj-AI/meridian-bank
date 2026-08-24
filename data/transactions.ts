@@ -35,7 +35,7 @@ export const transactions: Txn[] = [
   },
   {
     id: 't13',
-    party: 'ACH Transfer from DOORDASH,INC.',
+    party: 'DoorDash',
     initials: 'DD',
     note: 'Card declined — insufficient funds.',
     date: 'Aug 23, 2026',
