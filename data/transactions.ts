@@ -1,0 +1,166 @@
+/**
+ * Sample data only — nothing here is real. Amounts, names, account and routing
+ * values are fabricated placeholders for the front-end build.
+ */
+
+export type TxnType = 'deposit' | 'withdrawal';
+
+export type Txn = {
+  id: string;
+  party: string;
+  initials: string;
+  note: string;
+  date: string;
+  time: string;
+  amount: number;
+  type: TxnType;
+  method: string;
+  status: 'Completed' | 'Pending';
+  accountId: string;
+};
+
+export const transactions: Txn[] = [
+  {
+    id: 't1',
+    party: 'Payroll — Northwind Studio',
+    initials: 'NS',
+    note: 'August salary, second half.',
+    date: 'Aug 22, 2026',
+    time: '6:02 AM',
+    amount: 2450.0,
+    type: 'deposit',
+    method: 'Direct Deposit',
+    status: 'Completed',
+    accountId: 'spend',
+  },
+  {
+    id: 't2',
+    party: 'Renata Coelho',
+    initials: 'RC',
+    note: "Last night's movie showing.",
+    date: 'Aug 21, 2026',
+    time: '9:47 PM',
+    amount: -100.0,
+    type: 'withdrawal',
+    method: 'QuickPay',
+    status: 'Completed',
+    accountId: 'spend',
+  },
+  {
+    id: 't3',
+    party: 'Priya Raman',
+    initials: 'PR',
+    note: 'Thank you for lunch!',
+    date: 'Aug 21, 2026',
+    time: '1:15 PM',
+    amount: 20.0,
+    type: 'deposit',
+    method: 'QuickPay',
+    status: 'Completed',
+    accountId: 'spend',
+  },
+  {
+    id: 't4',
+    party: 'ATM — 4th & Harbour',
+    initials: 'AT',
+    note: 'Cash for the weekend market.',
+    date: 'Aug 20, 2026',
+    time: '11:28 AM',
+    amount: -160.0,
+    type: 'withdrawal',
+    method: 'ATM Withdrawal',
+    status: 'Completed',
+    accountId: 'spend',
+  },
+  {
+    id: 't5',
+    party: 'Harbour Art LLC',
+    initials: 'HA',
+    note: 'Framing deposit for the print.',
+    date: 'Aug 19, 2026',
+    time: '4:33 PM',
+    amount: -132.87,
+    type: 'withdrawal',
+    method: 'Card Purchase',
+    status: 'Pending',
+    accountId: 'spend',
+  },
+  {
+    id: 't6',
+    party: 'Mobile Check Deposit',
+    initials: 'MC',
+    note: 'Refund cheque from the dentist.',
+    date: 'Aug 18, 2026',
+    time: '8:05 AM',
+    amount: 315.5,
+    type: 'deposit',
+    method: 'Mobile Deposit',
+    status: 'Completed',
+    accountId: 'reserve',
+  },
+  {
+    id: 't7',
+    party: 'Gulshan Utilities',
+    initials: 'GU',
+    note: 'Electricity, billing cycle 08.',
+    date: 'Aug 17, 2026',
+    time: '7:19 AM',
+    amount: -88.4,
+    type: 'withdrawal',
+    method: 'Scheduled Payment',
+    status: 'Completed',
+    accountId: 'spend',
+  },
+  {
+    id: 't8',
+    party: 'Idris Khan',
+    initials: 'IK',
+    note: 'Split for the airport cab.',
+    date: 'Aug 16, 2026',
+    time: '10:02 PM',
+    amount: 34.25,
+    type: 'deposit',
+    method: 'QuickPay',
+    status: 'Completed',
+    accountId: 'spend',
+  },
+  {
+    id: 't9',
+    party: 'Seaside Grocers',
+    initials: 'SG',
+    note: 'Weekly groceries.',
+    date: 'Aug 15, 2026',
+    time: '6:41 PM',
+    amount: -76.12,
+    type: 'withdrawal',
+    method: 'Card Purchase',
+    status: 'Completed',
+    accountId: 'spend',
+  },
+  {
+    id: 't10',
+    party: 'Interest Earned',
+    initials: 'IE',
+    note: 'Monthly interest on Growth.',
+    date: 'Aug 15, 2026',
+    time: '12:00 AM',
+    amount: 4.18,
+    type: 'deposit',
+    method: 'Interest',
+    status: 'Completed',
+    accountId: 'growth',
+  },
+];
+
+export function formatAmount(amount: number) {
+  const sign = amount < 0 ? '-' : '+';
+  const abs = Math.abs(amount).toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  return `${sign}$${abs}`;
+}
+
+export function txnById(id: string) {
+  return transactions.find((t) => t.id === id);
+}
