@@ -12,17 +12,24 @@ import { Divider } from './ui';
  */
 export function TxnRow({ txn, last }: { txn: Txn; last?: boolean }) {
   const deposit = txn.type === 'deposit';
+  const failed = txn.status === 'Failed';
   return (
     <View>
       <Pressable
         style={styles.row}
         onPress={() => router.push(`/transaction/${txn.id}`)}
       >
-        <View style={[styles.avatar, deposit && styles.avatarDeposit]}>
+        <View
+          style={[
+            styles.avatar,
+            deposit && styles.avatarDeposit,
+            failed && styles.avatarFailed,
+          ]}
+        >
           <Ionicons
             name={deposit ? 'arrow-down' : 'arrow-up'}
             size={16}
-            color={deposit ? colors.positive : colors.textMuted}
+            color={failed ? colors.danger : deposit ? colors.positive : colors.textMuted}
           />
         </View>
 
@@ -31,7 +38,13 @@ export function TxnRow({ txn, last }: { txn: Txn; last?: boolean }) {
             <Text style={styles.party} numberOfLines={1}>
               {txn.party}
             </Text>
-            <Text style={[styles.amount, deposit && styles.amountDeposit]}>
+            <Text
+              style={[
+                styles.amount,
+                deposit && styles.amountDeposit,
+                failed && styles.amountFailed,
+              ]}
+            >
               {formatAmount(txn.amount)}
             </Text>
           </View>
@@ -78,6 +91,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   avatarDeposit: { backgroundColor: '#DCEFE4' },
+  avatarFailed: { backgroundColor: '#F7DEDA' },
   line: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -87,6 +101,7 @@ const styles = StyleSheet.create({
   party: { flex: 1, ...type.bodyStrong, color: colors.text, fontWeight: '700' },
   amount: { ...type.bodyStrong, color: colors.text, fontWeight: '700' },
   amountDeposit: { color: colors.positive },
+  amountFailed: { color: colors.danger },
   meta: { flex: 1, ...type.caption, color: colors.textMuted, marginTop: 2 },
   pending: { ...type.caption, color: colors.accentDeep, fontWeight: '700' },
   failed: { color: colors.danger },
