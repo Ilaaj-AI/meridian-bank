@@ -29,6 +29,13 @@
       "expo-router",
       "expo-status-bar",
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "7293b2a1-c0f4-4a93-8b2e-befd45a78e9d"
+      }
+    },
+    "owner": "stackhead02"
   }
 }
