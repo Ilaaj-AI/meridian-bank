@@ -151,16 +151,6 @@ export function HomeScreen() {
               </Pressable>
             ))}
           </View>
-          <Divider inset={14} />
-
-          <Pressable
-            style={styles.routingButton}
-            onPress={() => router.push(`/account/${accounts[0].id}`)}
-          >
-            <MaterialCommunityIcons name="bank-outline" size={20} color={colors.link} />
-            <Text style={styles.routingButtonLabel}>Account and Routing Numbers</Text>
-            <Ionicons name="chevron-forward" size={18} color={colors.link} />
-          </Pressable>
 
           <Pressable style={styles.customize}>
             <Ionicons name="create-outline" size={15} color={colors.link} />
@@ -318,14 +308,6 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   customizeText: { ...type.label, color: colors.link, fontWeight: '700' },
-  routingButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-    paddingHorizontal: 14,
-    paddingVertical: 15,
-  },
-  routingButtonLabel: { flex: 1, ...type.body, fontSize: 16, color: colors.text },
 
   card: { marginTop: 14, marginHorizontal: 12 },
   cardTitle: {
