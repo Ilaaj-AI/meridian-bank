@@ -40,7 +40,7 @@ export const transactions: Txn[] = [
     note: 'Card declined — insufficient funds.',
     date: 'Aug 23, 2026',
     time: '7:02 PM',
-    amount: -56.9,
+    amount: -5690,
     type: 'withdrawal',
     method: 'Debit Card Purchase',
     status: 'Failed',
