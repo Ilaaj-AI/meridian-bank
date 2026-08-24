@@ -13,7 +13,8 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" />
           <Stack.Screen name="transactions" />
           <Stack.Screen name="transaction/[id]" />
-          <Stack.Screen name="account/[id]" options={{ presentation: 'modal' }} />
+          <Stack.Screen name="account/[id]/index" options={{ presentation: 'modal' }} />
+          <Stack.Screen name="account/[id]/routing" options={{ presentation: 'modal' }} />
           <Stack.Screen name="profile" />
           <Stack.Screen name="send" />
         </Stack>

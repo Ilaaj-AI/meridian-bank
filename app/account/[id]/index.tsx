@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocalSearchParams } from 'expo-router';
-import { RoutingNumbersScreen } from '../../screens/RoutingNumbersScreen';
+import { AccountDetailScreen } from '../../../screens/AccountDetailScreen';
 
 export default function AccountRoute() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  return <RoutingNumbersScreen accountId={String(id)} />;
+  return <AccountDetailScreen accountId={String(id)} />;
 }
