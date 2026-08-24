@@ -40,8 +40,8 @@ export const transactions: Txn[] = [
   },
   {
     id: 't13',
-    party: 'John B.',
-    initials: 'JB',
+    party: 'ACH transfer from DOORDASH,INC.',
+    initials: 'DD',
     note: 'Transfer could not be completed.',
     date: 'Aug 23, 2026',
     time: '7:02 PM',
