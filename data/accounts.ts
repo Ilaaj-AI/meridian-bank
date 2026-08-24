@@ -28,12 +28,12 @@ export const accounts: Account[] = [
   {
     id: 'spend',
     name: 'Spend',
-    mask: 'x5342',
+    mask: 'x6462',
     balance: -36.0,
     available: -536.0,
     note: 'Free Balance until Nov. 23',
-    accountNumber: '9871005342',
-    routingNumber: '123456789',
+    accountNumber: '4168256462',
+    routingNumber: '041000124',
   },
   {
     id: 'reserve',
@@ -56,8 +56,8 @@ export const accounts: Account[] = [
 ];
 
 export const wireDetails = {
-  domesticRouting: '123456780',
-  swift: 'MRDNUS33XXX',
+  domesticRouting: '043000096',
+  swift: 'PNCCUS33XXX',
 };
 
 export function accountById(id: string) {
