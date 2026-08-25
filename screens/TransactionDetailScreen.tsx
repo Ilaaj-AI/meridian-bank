@@ -30,7 +30,7 @@ export function TransactionDetailScreen({ id }: { id: string }) {
   }
 
   const account = accountById(txn.accountId);
-  const deposit = txn.type === 'deposit';
+  const deposit = txn.amount > 0;
 
   return (
     <View style={styles.root}>
@@ -77,7 +77,10 @@ export function TransactionDetailScreen({ id }: { id: string }) {
         <Card style={styles.card}>
           <Text style={styles.cardTitle}>Details</Text>
           <Divider />
-          <InfoRow label="Type" value={deposit ? 'Deposit' : 'Withdrawal'} />
+          <InfoRow
+            label="Type"
+            value={txn.type === 'deposit' ? 'Deposit' : txn.type}
+          />
           <Divider inset={14} />
           <InfoRow label="Method" value={txn.method} />
           <Divider inset={14} />

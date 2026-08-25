@@ -3,10 +3,10 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { ScreenHeader } from '../components/ScreenHeader';
 import { TxnRow } from '../components/TxnRow';
 import { Card, Divider } from '../components/ui';
-import { transactions, type TxnType } from '../data/transactions';
+import { transactions } from '../data/transactions';
 import { colors, radius, type } from '../theme/tokens';
 
-const FILTERS: { id: 'all' | TxnType; label: string }[] = [
+const FILTERS: { id: 'all' | 'deposit' | 'withdrawal'; label: string }[] = [
   { id: 'all', label: 'All' },
   { id: 'deposit', label: 'Deposits' },
   { id: 'withdrawal', label: 'Withdrawals' },
@@ -24,15 +24,13 @@ function groupByDate(list: typeof transactions) {
 }
 
 export function TransactionsScreen() {
-  const [filter, setFilter] = React.useState<'all' | TxnType>('all');
+  const [filter, setFilter] = React.useState<'all' | 'deposit' | 'withdrawal'>('all');
 
-  const filtered = React.useMemo(
-    () =>
-      filter === 'all'
-        ? transactions
-        : transactions.filter((t) => t.type === filter),
-    [filter],
-  );
+  const filtered = React.useMemo(() => {
+    if (filter === 'all') return transactions;
+    if (filter === 'deposit') return transactions.filter((t) => t.amount > 0);
+    return transactions.filter((t) => t.amount <= 0);
+  }, [filter]);
 
   const groups = groupByDate(filtered);
 

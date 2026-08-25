@@ -3,7 +3,7 @@
  * values are fabricated placeholders for the front-end build.
  */
 
-export type TxnType = 'AHC' | 'withdrawal' | 'deposit';
+export type TxnType = 'AHC' | 'deposit';
 
 export type Txn = {
   id: string;
@@ -27,7 +27,7 @@ export type Txn = {
 export const transactions: Txn[] = [
   {
     id: 't1',
-    party: 'ACH transfer from DOORDASH,INC',
+    party: 'AHC transfer from DOORDASH,INC.',
     initials: 'DD',
     note: 'Transfer could not be completed.',
     date: 'Aug 23, 2026',
@@ -72,7 +72,7 @@ export const transactions: Txn[] = [
     date: 'Aug 21, 2026',
     time: '9:47 PM',
     amount: -20.0,
-    type: 'withdrawal',
+    type: 'AHC',
     method: 'QuickPay',
     status: 'Completed',
     accountId: 'spend',
@@ -98,7 +98,7 @@ export const transactions: Txn[] = [
     date: 'Aug 20, 2026',
     time: '11:28 AM',
     amount: -9.2,
-    type: 'withdrawal',
+    type: 'AHC',
     method: 'Card Purchase',
     status: 'Completed',
     accountId: 'spend',
@@ -111,7 +111,7 @@ export const transactions: Txn[] = [
     date: 'Aug 19, 2026',
     time: '4:33 PM',
     amount: -15.0,
-    type: 'withdrawal',
+    type: 'AHC',
     method: 'Card Purchase',
     status: 'Pending',
     accountId: 'spend',
@@ -137,7 +137,7 @@ export const transactions: Txn[] = [
     date: 'Aug 17, 2026',
     time: '7:19 AM',
     amount: -35.4,
-    type: 'withdrawal',
+    type: 'AHC',
     method: 'Scheduled Payment',
     status: 'Completed',
     accountId: 'spend',
@@ -163,7 +163,7 @@ export const transactions: Txn[] = [
     date: 'Aug 15, 2026',
     time: '6:41 PM',
     amount: -46.12,
-    type: 'withdrawal',
+    type: 'AHC',
     method: 'Card Purchase',
     status: 'Completed',
     accountId: 'spend',
@@ -189,7 +189,7 @@ export const transactions: Txn[] = [
     date: 'Aug 14, 2026',
     time: '9:00 AM',
     amount: -9.99,
-    type: 'withdrawal',
+    type: 'AHC',
     method: 'Card Purchase',
     status: 'Completed',
     accountId: 'spend',

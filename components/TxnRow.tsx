@@ -11,7 +11,7 @@ import { Divider } from './ui';
  * Deposits are green and withdrawals stay neutral so credits read at a glance.
  */
 export function TxnRow({ txn, last }: { txn: Txn; last?: boolean }) {
-  const deposit = txn.type === 'deposit';
+  const deposit = txn.amount > 0;
   const failed = txn.status === 'Failed';
   return (
     <View>
