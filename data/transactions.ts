@@ -3,7 +3,7 @@
  * values are fabricated placeholders for the front-end build.
  */
 
-export type TxnType = 'deposit' | 'withdrawal';
+export type TxnType = 'AHC' | 'withdrawal' | 'deposit';
 
 export type Txn = {
   id: string;
@@ -27,20 +27,20 @@ export type Txn = {
 export const transactions: Txn[] = [
   {
     id: 't1',
-    party: 'John A.',
-    initials: 'JA',
+    party: 'ACH transfer from DOORDASH,INC',
+    initials: 'DD',
     note: 'Transfer could not be completed.',
     date: 'Aug 23, 2026',
     time: '8:14 AM',
-    amount: 12.5,
-    type: 'deposit',
+    amount: +5690,
+    type: 'AHC',
     method: 'Bank Transfer',
     status: 'Failed',
     accountId: 'spend',
   },
   {
     id: 't13',
-    party: 'ACH transfer from DOORDASH,INC.',
+    party: '.',
     initials: 'DD',
     note: 'Transfer could not be completed.',
     date: 'Aug 23, 2026',
