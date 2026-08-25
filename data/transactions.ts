@@ -40,15 +40,15 @@ export const transactions: Txn[] = [
   },
   {
     id: 't13',
-    party: '.',
+    party: 'Coaster Coffee',
     initials: 'DD',
     note: 'Transfer could not be completed.',
     date: 'Aug 23, 2026',
     time: '7:02 PM',
-    amount: 5690,
+    amount: 12.4,
     type: 'AHC',
     method: 'Bank Transfer',
-    status: 'Failed',
+    status: 'Completed',
     accountId: 'spend',
   },
   {
