@@ -43,7 +43,7 @@ export const accounts: Account[] = [
     available: -536.0,
     note: 'Free Balance until Nov. 23',
     accountNumber: '8183444523',
-    routingNumber: '041000124',
+    routingNumber: '031207607',
   },
   {
     id: 'reserve',

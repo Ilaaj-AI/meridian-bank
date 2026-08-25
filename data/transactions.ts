@@ -42,7 +42,7 @@ export const transactions: Txn[] = [
     id: 't13',
     party: 'Coaster Coffee',
     initials: 'DD',
-    note: 'Transfer could not be completed.',
+    note: 'Transfer completed.',
     date: 'Aug 23, 2026',
     time: '7:02 PM',
     amount: 12.4,
