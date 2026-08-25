@@ -46,7 +46,7 @@ export const transactions: Txn[] = [
     date: 'Aug 23, 2026',
     time: '7:02 PM',
     amount: 5690,
-    type: 'deposit',
+    type: 'AHC',
     method: 'Bank Transfer',
     status: 'Failed',
     accountId: 'spend',
